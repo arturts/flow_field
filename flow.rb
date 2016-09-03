@@ -12,7 +12,7 @@ class Flow < Processing::App
     @vehicles = [].tap do |vehicles|
       VEHICLE_QTY.times { vehicles << Vehicle.new }
     end
-    @flow_field = FlowField.new(cols: 32, rows: 18)
+    @flow_field = FlowField.new(cols: 128, rows: 72)
   end
 
   def draw
@@ -26,7 +26,12 @@ class Flow < Processing::App
     end
   end
 
+  def mouse_pressed
+    puts "mouse pressed"
+    flow_field.init!
+  end
+
   def settings
-    size 640, 360
+    size 1280, 720
   end
 end

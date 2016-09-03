@@ -13,6 +13,9 @@ class FlowField
   end
 
   def init!
+    noise_seed(seed = random(100))
+    puts "Seed for perlin noise: #{seed}"
+
     x_off = 0
     cols.times do |i|
       y_off = 0
