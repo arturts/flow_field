@@ -2,3 +2,7 @@
 
 For an explanation, see [Kadenze](https://www.kadenze.com/courses/the-nature-of-code-i/sessions/steering-behaviors)'s The Nature of Course by Daniel Shiffman.
 The course is built with p5.js in mind, but I'm a ruby guy.
+
+## To run this sketch, install Processing, JRuby and JRubyArt then:
+
+	$ k9 --run flow.rb
