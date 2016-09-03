@@ -3,7 +3,8 @@ class Vehicle
 
   attr_reader :position, :velocity, :acceleration, :max_speed, :max_force, :r
 
-  def initialize(x:, y:, max_speed: 5, max_force: 0.2, r: 3)
+  def initialize(x: random(width), y: random(height),
+                 max_speed: 5, max_force: 0.2, r: 3)
     @position     = Vec2D.new(x, y)
     @velocity     = Vec2D.new(0, 0);
     @acceleration = Vec2D.new(0, 0);
@@ -25,6 +26,10 @@ class Vehicle
     velocity.limit(max_speed)
     @position += velocity
     @acceleration.set_mag(0)
+    position.x = 0 if position.x > width
+    position.y = 0 if position.y > height
+    position.x = width if position.x < 0
+    position.y = height if position.y < 0
   end
 
   def display
