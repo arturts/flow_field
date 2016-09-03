@@ -14,7 +14,7 @@ class Steering < Processing::App
 
     target = Vec2D.new(mouse_x, mouse_y)
 
-    vehicle.seek(target)
+    vehicle.arrive(target)
     vehicle.update!
     vehicle.display
   end

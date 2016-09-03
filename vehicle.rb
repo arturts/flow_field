@@ -16,7 +16,7 @@ class Vehicle
     @acceleration += force
   end
 
-  def seek(target)
+  def arrive(target)
     apply_force!(steering(target))
   end
 
@@ -55,7 +55,14 @@ class Vehicle
   end
 
   def desired(target)
-    (target - position).tap { |v| v.set_mag(max_speed) }
+    (target - position).tap do |v|
+      desired_mag = if (distance = v.mag) < 100
+                      map1d(distance, 0..100, 0..max_speed)
+                    else
+                      max_speed
+                    end
+      v.set_mag(desired_mag)
+    end
   end
 end
 
