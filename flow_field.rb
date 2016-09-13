@@ -23,9 +23,9 @@ class FlowField
         theta = map1d(noise(x_off, y_off), 0..1, 0..TWO_PI)
 
         field[i][j] = Vec2D.from_angle(theta)
-        y_off += 0.1
+        y_off += 0.01
       end
-      x_off += 0.1
+      x_off += 0.01
     end
   end
 
